@@ -9,7 +9,7 @@ public class SchoolService {
 	 * 매개변수로 전달된 구성원 정보의 전화번호가 중복될 경우에는 리스트에 추가하지 않는다 
 	 * -> 01012341234 tel이 중복되므로 등록 불가합니다
 	 */
-	public void addMember(Member member) {
+	public void addMember(Member member) {//Member 부모타입으로 선언함 -> 학생,교사,직원과 같은 다양한 sub(하위) 객체를 처리할 수 있다 (=>다형성)
 		boolean exist=false;
 		for(int i=0;i<list.size();i++) {
 			if(member.getTel().equals(list.get(i).getTel())) { // 동일한 전화번호가 존재하면 
@@ -30,6 +30,7 @@ public class SchoolService {
 	 *  매개변수로 전달된 tel과 일치하는 리스트의 구성원이 존재하면
 	 *  해당 구성원 객체의 주소값을 반환 
 	 *  존재하지 않으면 null을 반환 
+	 *  return type을 member로 명시하면 학생 교사 직원과 같은 다양한 하위객체를 리턴할 수 있다 => 다형성
 	 */
 	public Member findMemberByTel(String tel) {
 		Member member=null;
